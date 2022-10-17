@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/styles.css"/>
+</head>
+
+<body>
+    <form class="form js-speaker-form">
+        <div class="form-field">
+            <label for="name" class="form-label">Name</label>
+            <input class="form-input" type="text" name="name" placeholder="Volodya Pochepa" id="name" autofocus />
+        </div>
+
+        <div class="form-field">
+            <label for="tel">Phone</label>
+            <input type="tel" name="tel" id="tel" placeholder="+380 66 152 64 32" />
+        </div>
+
+        <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="@mail.com" autocomplete="off" />
+        </div>
+
+        <div role="group" class="group">
+            <h2 class="group-title">Topic of the report</h2>
+
+            <ul class="topic-options">
+                <li>
+                    <input type="checkbox" name="top" value="html" id="html" checked />
+                    <label for="html">HTML</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="top" value="js" id="css" />
+                    <label for="css">CSS</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="top" value="js" id="js" />
+                    <label for="js">JS</label>
+                </li>
+            </ul>
+        </div>
+
+        <div role="group" class="group">
+            <h2 class="group-title">The level of your experience</h2>
+
+            <ul class="experince-options">
+                <li>
+                    <input type="radio" name="expirience" value="junior" id="junior" checked />
+                    <label for="junior">Junior</label>
+                </li>
+                <li>
+                    <input type="radio" name="expirience" value="middle" id="middle" />
+                    <label for="middle">Middle</label>
+                </li>
+                <li>
+                    <input type="radio" name="expirience" value="senior" id="senior" />
+                    <label for="senior">Senior</label>
+                </li>
+            </ul>
+        </div>
+
+        <div class="form-field">
+            <label for="date">Date and time of the conference</label>
+            <input type="datetime-local" class="date" name="date" id="date" min="2020-04-12T12:00"
+                max="2022-10-16T12:00" />
+        </div>
+
+        <div class="form-field">
+            <label for="pdf">Download a copy</label>
+            <input type="file" name="pdf" id="pdf" />
+        </div>
+
+        <div class="form-field">
+            <label for="comment">Leave a comment</label>
+            <textarea name="comment" class="comment" id="comment" rows="10" placeholder="Залишити коментар"></textarea>
+        </div>
+
+        <div class="form-field">
+            <label for="policy">I accept cookies</label>
+            <input type="checkbox" name="policy" id="policy" />
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        (() => {
+            document
+                .querySelector(".js-speaker-form")
+                .addEventListener("submit", (e) => {
+                    e.preventDefault();
+
+                    new FormData(e.currentTarget).forEach((value, name) =>
+                        console.log(`${name}: ${value}`)
+                    );
+
+                    e.currentTarget.reset();
+                });
+        })();
+    </script>
+</body>
+
+</html>
